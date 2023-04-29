@@ -1,10 +1,10 @@
 {
-  "name": "openai",
-  "version": "3.2.1",
+  "name": "smolai",
+  "version": "0.0.1",
   "description": "Node.js library for the OpenAI API",
   "repository": {
     "type": "git",
-    "url": "git@github.com:openai/openai-node.git"
+    "url": "git@github.com:smol-ai/smol-js.git"
   },
   "keywords": [
     "openai",
@@ -13,7 +13,7 @@
     "gpt-3",
     "gpt3"
   ],
-  "author": "OpenAI",
+  "author": "sw-yx",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
