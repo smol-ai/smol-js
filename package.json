@@ -1,6 +1,6 @@
 {
   "name": "smolai",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Node.js library for the OpenAI API",
   "repository": {
     "type": "git",
