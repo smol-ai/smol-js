@@ -2,7 +2,7 @@
 
 A TypeScript module for querying OpenAI's API using `fetch` (a standard Web API)
 instead of `axios`. This is a drop-in replacement for the official `openai`
-module (which has `axios` as a dependency).
+module (which has `axios` as a dependency) - except you need to supply `fetch` in Node v17 and below ([fetch landed in Node 18](https://www.stefanjudis.com/notes/global-fetch-landed-in-node-18/)).
 
 As well as reducing the bundle size, removing the dependency means we can query
 OpenAI from edge environments. Edge functions such as Next.js Edge API Routes
@@ -15,24 +15,19 @@ included in the official module.
 ## Installation
 
 ```shell
-yarn add openai-edge
-```
-
-or
-
-```shell
-npm install openai-edge
+npm install smolai
+# or yarn add smolai
 ```
 
 ## Responses
 
 Every method returns a promise resolving to the standard `fetch` response i.e.
 `Promise<Response>`. Since `fetch` doesn't have built-in support for types in
-its response data, `openai-edge` includes an export `ResponseTypes` which you
+its response data, `smolai` includes an export `ResponseTypes` which you
 can use to assert the correct type on the JSON response:
 
 ```typescript
-import { Configuration, OpenAIApi, ResponseTypes } from "openai-edge"
+import { Configuration, OpenAIApi, ResponseTypes } from "smolai"
 
 const configuration = new Configuration({
   apiKey: "YOUR-API-KEY",
@@ -100,7 +95,7 @@ const openai = new OpenAIApi(configuration, undefined, fetch)
 
 Here are some sample
 [Next.js Edge API Routes](https://nextjs.org/docs/api-routes/edge-api-routes)
-using `openai-edge`.
+using `smolai`.
 
 ### 1. Streaming chat with `gpt-3.5-turbo`
 
@@ -112,7 +107,7 @@ and here's a [full NextJS example](https://github.com/dan-kwiat/chat-gpt-clone).
 
 ```typescript
 import type { NextRequest } from "next/server"
-import { Configuration, OpenAIApi } from "openai-edge"
+import { Configuration, OpenAIApi } from "smolai"
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -170,7 +165,7 @@ export default handler
 
 ```typescript
 import type { NextRequest } from "next/server"
-import { Configuration, OpenAIApi, ResponseTypes } from "openai-edge"
+import { Configuration, OpenAIApi, ResponseTypes } from "smolai"
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -220,7 +215,7 @@ export default handler
 
 ```typescript
 import type { NextRequest } from "next/server"
-import { Configuration, OpenAIApi, ResponseTypes } from "openai-edge"
+import { Configuration, OpenAIApi, ResponseTypes } from "smolai"
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -266,3 +261,7 @@ export const config = {
 
 export default handler
 ```
+
+## acknowledgements
+
+This is a fork of https://github.com/dan-kwiat/openai-edge!

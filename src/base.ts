@@ -14,7 +14,7 @@
 
 import type { Configuration } from "./configuration"
 
-export const BASE_PATH = "https://api.openai.com/v1".replace(/\/+$/, "")
+export const BASE_PATH = "https://api.smol.ai/v1".replace(/\/+$/, "")
 
 export type FetchInstance = (
   input: URL | RequestInfo,
