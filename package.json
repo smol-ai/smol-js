@@ -2,7 +2,7 @@
   "version": "0.0.6",
   "name": "smolai",
   "umd:name": "smolai",
-  "repository": "smol-ai/smol-js",
+  "repository": "smol-ai/sdk",
   "description": "Use SmolAI's API from an edge runtime, using standard Web APIs only",
   "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",
@@ -37,12 +37,16 @@
   ],
   "devDependencies": {
     "@rollup/plugin-node-resolve": "13.1.3",
+    "@types/json-schema": "^7.0.12",
     "rollup": "2.66.1",
     "rollup-plugin-terser": "7.0.2",
     "rollup-plugin-typescript2": "0.27.1",
     "tsm": "2.2.1",
     "typescript": "^4.9.4",
-    "uvu": "0.5.3"
+    "uvu": "0.5.3",
+    "zod": "^3.21.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "zod-to-json-schema": "^3.21.2"
+  }
 }
